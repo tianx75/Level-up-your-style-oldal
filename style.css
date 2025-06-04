@@ -1,0 +1,462 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+/* Alapbeállítások és új betűtípusok */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333; 
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Fejléc és Navigáció - Stílusok */
+header {
+    background-color: #ffffff; 
+    padding: 0.5rem 2rem; 
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+/* Oldalnév Stílusa a Fejlécben */
+.site-title a {
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.6rem; 
+    font-weight: bold; 
+    color: #2c3e50; 
+    text-decoration: none; 
+    transition: color 0.3s ease;
+}
+
+.site-title a:hover,
+.site-title a:focus {
+    color: #b08d57; 
+}
+
+/* Main tartalom eltolása a fixált fejléc miatt */
+main {
+    padding-top: 80px; 
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 10px; 
+}
+
+header nav ul li a {
+    font-family: 'Montserrat', sans-serif; 
+    text-decoration: none;
+    color: #2c3e50; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    font-size: 0.85rem; 
+    padding: 20px 10px; 
+    display: inline-block; 
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    border-bottom: 2px solid transparent; 
+}
+
+header nav ul li a:hover,
+header nav ul li a:focus {
+    color: #b08d57; 
+    border-bottom-color: #b08d57; 
+}
+
+/* Általános szekció stílusok */
+section {
+    padding: 80px 20px; 
+    min-height: 300px;
+    border-bottom: 1px solid #444; 
+}
+
+/* Hero Szekció */
+#hero {
+    background-image: url('https://i.imgur.com/KY1w88a.jpeg'); 
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    min-height: 90vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+    text-align: center; 
+    border-bottom: none; 
+}
+
+#hero h1 {
+    font-size: 3.5rem; 
+    margin-bottom: 0.75rem;
+}
+
+#hero p {
+    font-size: 1.3rem;
+    font-family: 'Montserrat', sans-serif; 
+}
+
+/* Rólam Szekció - SÖTÉT STÍLUS */
+#rolam {
+    background-color: #1a1a1a; 
+    color: #f0f0f0; 
+    text-align: left; 
+}
+#rolam h2 {
+    text-align: center; 
+    margin-bottom: 40px; 
+    color: #b08d57; 
+}
+#rolam p {
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px; 
+    line-height: 1.7; 
+}
+
+/* Szolgáltatások Szekció - VILÁGOS STÍLUS MARAD */
+#szolgaltatasok {
+    background-color: #f7f7f7; 
+    border-bottom-color: #ddd; 
+}
+#szolgaltatasok h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50; 
+}
+#szolgaltatasok > p { 
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    color: #333; 
+}
+
+/* Régi #szolgaltatasok ul li stílusok nullázása/eltávolítása */
+#szolgaltatasok ul li {
+    margin-bottom: 0; 
+    font-size: inherit;
+    display: block; /* Fontos a harmonikához */
+    margin-right: 0; 
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    color: inherit; 
+    transition: none;
+}
+#szolgaltatasok ul li:hover {
+    transform: none; 
+    box-shadow: none;
+}
+
+/* === Harmonika (Accordion) Stílusok a Szolgáltatásoknál === */
+#szolgaltatasok .accordion-list { /* Ez az ul elem lesz */
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 30px; 
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#szolgaltatasok .accordion-item { /* Ez az li elem lesz */
+    border: 1px solid #ddd; 
+    border-bottom: none; 
+    background-color: #fff; 
+}
+#szolgaltatasok .accordion-item:last-child {
+    border-bottom: 1px solid #ddd;
+}
+
+#szolgaltatasok .accordion-trigger { /* Ez a button elem lesz */
+    background-color: transparent; 
+    color: #2c3e50; 
+    cursor: pointer;
+    padding: 18px 20px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.1rem; 
+    font-family: 'Playfair Display', serif; 
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+#szolgaltatasok .accordion-trigger:hover {
+    background-color: #f0f0f0; /* Kicsit sötétebb hover */
+}
+
+#szolgaltatasok .accordion-trigger .accordion-icon { /* Ez a span a button-ön belül */
+    font-size: 1.5rem;
+    font-weight: normal; 
+    transition: transform 0.3s ease;
+    color: #b08d57; 
+}
+
+#szolgaltatasok .accordion-trigger.active .accordion-icon {
+    transform: rotate(45deg); 
+}
+
+#szolgaltatasok .accordion-content { /* Ez a div a leírással */
+    padding: 0 20px; 
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out; 
+    background-color: #fff; 
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #333; 
+}
+#szolgaltatasok .accordion-content.open {
+    padding: 20px; 
+}
+#szolgaltatasok .accordion-content p {
+    margin-top: 0;
+    margin-bottom: 15px; 
+}
+#szolgaltatasok .accordion-content p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Kapcsolat Szekció Stílusai - ÚJ SÖTÉT STÍLUS */
+#kapcsolat {
+    background-color: #1a1a1a; 
+    color: #f0f0f0; 
+    text-align: left; 
+}
+
+#kapcsolat h2 { 
+    text-align: center; 
+    margin-bottom: 30px;
+    color: #b08d57; 
+}
+#kapcsolat > p { 
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+.contact-details {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 40px; 
+    max-width: 960px; 
+    margin: 0 auto; 
+}
+
+.contact-info,
+.contact-form-placeholder {
+    flex: 1; 
+    min-width: 300px; 
+}
+
+.contact-info h3,
+.contact-form-placeholder h3 {
+    font-family: 'Playfair Display', serif;
+    color: #b08d57; 
+    margin-top: 0;
+    margin-bottom: 20px; 
+    border-bottom: 1px solid #555; 
+    padding-bottom: 10px;
+}
+
+.contact-info p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+.contact-info p small { 
+    color: #aaa; 
+}
+
+.contact-info a {
+    color: #b08d57; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #d4af7a; 
+}
+
+.contact-form-placeholder input[type="text"],
+.contact-form-placeholder input[type="email"],
+.contact-form-placeholder textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #555; 
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    background-color: #2b2b2b; 
+    color: #f0f0f0; 
+}
+.contact-form-placeholder input[type="text"]::placeholder,
+.contact-form-placeholder input[type="email"]::placeholder,
+.contact-form-placeholder textarea::placeholder {
+    color: #aaa; 
+}
+
+.contact-form-placeholder textarea {
+    min-height: 120px;
+    resize: vertical; 
+}
+
+.contact-form-placeholder button {
+    background-color: #b08d57; 
+    color: #1a1a1a; 
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form-placeholder button:hover {
+    background-color: #d4af7a; 
+}
+
+/* Lábléc - ÚJ SÖTÉT STÍLUS */
+footer {
+    background-color: #1a1a1a; 
+    color: #f0f0f0; 
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    border-top: 3px solid #b08d57; 
+}
+/* === Reszponzív Stílusok === */
+
+/* Hamburger Ikon Stílusai (alapból rejtve nagyobb képernyőn) */
+.hamburger-icon {
+    display: none; 
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger-icon div {
+    width: 25px;
+    height: 3px;
+    background-color: #2c3e50; 
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Media Query kisebb képernyőkre (pl. tabletek és telefonok) */
+@media (max-width: 768px) {
+    header {
+        padding: 0.5rem 1rem; 
+    }
+
+    main {
+        padding-top: 70px; 
+    }
+    
+    .site-title a {
+        font-size: 1.3rem; 
+    }
+
+    header nav ul {
+        display: none; 
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        z-index: 999; 
+    }
+
+    header nav ul.mobile-menu-open { 
+        display: block; 
+    }
+
+    header nav ul li {
+        display: block; 
+        text-align: center;
+        margin: 0;
+    }
+
+    header nav ul li a {
+        display: block; 
+        padding: 15px;
+        border-bottom: 1px solid #f0f0f0; 
+    }
+    header nav ul li a:hover,
+    header nav ul li a:focus {
+        background-color: #f9f9f9; 
+        color: #b08d57;
+        border-bottom-color: #f0f0f0; 
+    }
+    header nav ul li:last-child a {
+        border-bottom: none; 
+    }
+
+    .hamburger-icon {
+        display: block; 
+    }
+    
+    .hamburger-icon.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .hamburger-icon.active div:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-icon.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .contact-details {
+        flex-direction: column; 
+    }
+
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+    #hero p {
+        font-size: 1.1rem;
+    }
+    #rolam p, #szolgaltatasok > p, #kapcsolat > p {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    #szolgaltatasok .accordion-list { /* Harmonika is legyen keskenyebb mobilon */
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    /* A harmonika elemek (korábban #szolgaltatasok ul li) már block szintűek, így jól tördelődnek. */
+}
