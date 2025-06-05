@@ -24,24 +24,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     accordionTriggers.forEach(trigger => {
         trigger.addEventListener('click', function () {
-            const content = this.nextElementSibling; // A gomb után következő elem (az accordion-content div)
+            const content = this.nextElementSibling; 
             const isOpen = this.getAttribute('aria-expanded') === 'true';
 
             this.setAttribute('aria-expanded', !isOpen);
-            this.classList.toggle('active'); // Az ikon (+) forgatásához/változtatásához CSS-sel
+            this.classList.toggle('active'); 
 
             if (!isOpen) {
-                // Nyitás
                 content.hidden = false;
-                // Kis késleltetés a max-height beállítása előtt, hogy a 'hidden' attribútum eltávolítása érvényesüljön
                 requestAnimationFrame(() => {
                     content.style.maxHeight = content.scrollHeight + "px";
                     content.classList.add('open');
                 });
             } else {
-                // Csukás
                 content.style.maxHeight = null;
                 content.classList.remove('open');
-                // A 'hidden' attribútumot akkor adjuk vissza, ha az animáció befejeződött,
-                // hogy ne legyen ugrás. A CSS transition időtartamához igazítva.
-                // A max-height = 0 és overflow: hidden már
+                content.addEventListener('transitionend', function handler() {
+                    if (content.style.maxHeight === '0px' || content.style.maxHeight === null) {
+                        content.hidden = true;
+                    }
+                    content.removeEventListener('transitionend', handler);
+                });
+            }
+        });
+    });
+});
