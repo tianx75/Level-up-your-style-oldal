@@ -151,10 +151,10 @@ section {
 }
 
 /* Régi #szolgaltatasok ul li stílusok nullázása/eltávolítása */
-#szolgaltatasok ul li {
+#szolgaltatasok ul li { /* Ez a szabály az .accordion-item li-re vonatkozik majd */
     margin-bottom: 0; 
     font-size: inherit;
-    display: block; /* Fontos a harmonikához */
+    display: block; 
     margin-right: 0; 
     padding: 0;
     background-color: transparent;
@@ -162,14 +162,15 @@ section {
     border-radius: 0;
     color: inherit; 
     transition: none;
+    box-shadow: none; /* Eltávolítjuk a korábbi hover árnyékot is */
 }
-#szolgaltatasok ul li:hover {
+#szolgaltatasok ul li:hover { /* Ezt is felülírjuk/nullázzuk */
     transform: none; 
     box-shadow: none;
 }
 
 /* === Harmonika (Accordion) Stílusok a Szolgáltatásoknál === */
-#szolgaltatasok .accordion-list { /* Ez az ul elem lesz */
+#szolgaltatasok .accordion-list { 
     list-style-type: none;
     padding-left: 0;
     margin-top: 30px; 
@@ -178,7 +179,7 @@ section {
     margin-right: auto;
 }
 
-#szolgaltatasok .accordion-item { /* Ez az li elem lesz */
+#szolgaltatasok .accordion-item { 
     border: 1px solid #ddd; 
     border-bottom: none; 
     background-color: #fff; 
@@ -187,7 +188,7 @@ section {
     border-bottom: 1px solid #ddd;
 }
 
-#szolgaltatasok .accordion-trigger { /* Ez a button elem lesz */
+#szolgaltatasok .accordion-trigger { 
     background-color: transparent; 
     color: #2c3e50; 
     cursor: pointer;
@@ -206,10 +207,10 @@ section {
 }
 
 #szolgaltatasok .accordion-trigger:hover {
-    background-color: #f0f0f0; /* Kicsit sötétebb hover */
+    background-color: #f0f0f0; 
 }
 
-#szolgaltatasok .accordion-trigger .accordion-icon { /* Ez a span a button-ön belül */
+#szolgaltatasok .accordion-trigger .accordion-icon { 
     font-size: 1.5rem;
     font-weight: normal; 
     transition: transform 0.3s ease;
@@ -220,7 +221,7 @@ section {
     transform: rotate(45deg); 
 }
 
-#szolgaltatasok .accordion-content { /* Ez a div a leírással */
+#szolgaltatasok .accordion-content { 
     padding: 0 20px; 
     max-height: 0;
     overflow: hidden;
@@ -241,6 +242,29 @@ section {
     margin-bottom: 0;
 }
 
+/* === Kapcsolat Szekció Ikonjainak Stílusa === */
+.icon-contact {
+    margin-right: 10px; 
+    color: #b08d57;     
+    font-size: 1.1em;   
+    width: 20px;        
+    text-align: center; 
+}
+#kapcsolat .contact-info p small { /* Sötét háttéren a kisbetűs megjegyzés is legyen világosabb */
+    color: #ccc; 
+}
+
+/* === Szolgáltatások Szekció Harmonika Ikonjainak Stílusa === */
+.service-icon {
+    margin-right: 12px; 
+    color: #b08d57;     
+    font-size: 1em;     
+    width: 20px;        
+}
+#szolgaltatasok .accordion-trigger span:first-child { 
+    display: flex;
+    align-items: center;
+}
 
 /* Kapcsolat Szekció Stílusai - ÚJ SÖTÉT STÍLUS */
 #kapcsolat {
@@ -289,9 +313,6 @@ section {
 .contact-info p {
     margin-bottom: 12px;
     font-size: 0.95rem;
-}
-.contact-info p small { 
-    color: #aaa; 
 }
 
 .contact-info a {
@@ -454,9 +475,8 @@ footer {
         padding-left: 10px;
         padding-right: 10px;
     }
-    #szolgaltatasok .accordion-list { /* Harmonika is legyen keskenyebb mobilon */
+    #szolgaltatasok .accordion-list { 
         padding-left: 10px;
         padding-right: 10px;
     }
-    /* A harmonika elemek (korábban #szolgaltatasok ul li) már block szintűek, így jól tördelődnek. */
 }
