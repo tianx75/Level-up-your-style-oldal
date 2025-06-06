@@ -8,14 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const loginBox = document.getElementById('loginBox');
         const lockoutMessageContainer = document.getElementById('lockoutMessageContainer');
         const dots = document.querySelectorAll('#attemptsCounter .dot');
-
         const correctPassword = "stilus"; 
         let attemptsLeft = 3;
 
         passwordForm.addEventListener('submit', function(event) {
             event.preventDefault(); 
             if (attemptsLeft <= 0) return;
-
             if (passwordInput.value === correctPassword) {
                 window.location.href = "katalogus.html"; 
             } else {
@@ -43,12 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburgerIcon = document.getElementById('hamburgerIcon');
     if (hamburgerIcon) {
         const navUl = document.querySelector('header nav ul');
-
         hamburgerIcon.addEventListener('click', function() {
             navUl.classList.toggle('mobile-menu-open');
             this.classList.toggle('active'); 
         });
-
         navUl.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
                 if (navUl.classList.contains('mobile-menu-open')) {
@@ -66,10 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
             trigger.addEventListener('click', function () {
                 const content = this.nextElementSibling; 
                 const isOpen = this.getAttribute('aria-expanded') === 'true';
-
                 this.setAttribute('aria-expanded', !isOpen);
                 this.classList.toggle('active'); 
-
                 if (!isOpen) {
                     content.hidden = false;
                     requestAnimationFrame(() => {
@@ -79,11 +73,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     content.style.maxHeight = null;
                     content.classList.remove('open');
-                    content.addEventListener('transitionend', function handler() {
-                        if (!content.style.maxHeight) {
-                            content.hidden = true;
-                        }
-                        content.removeEventListener('transitionend', handler);
+                    content.addEventListener('transitionend', () => {
+                        if (!content.style.maxHeight) { content.hidden = true; }
                     }, { once: true });
                 }
             });
@@ -102,26 +93,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 const imageSrc = card.querySelector('img').src;
                 lightboxImage.src = imageSrc;
                 lightbox.hidden = false;
-                setTimeout(() => {
-                    lightbox.classList.add('visible');
-                }, 10);
+                setTimeout(() => { lightbox.classList.add('visible'); }, 10);
             });
         });
 
         const closeLightbox = function() {
             lightbox.classList.remove('visible');
-            lightbox.addEventListener('transitionend', function() {
-                if (!lightbox.classList.contains('visible')) {
-                    lightbox.hidden = true;
-                }
+            lightbox.addEventListener('transitionend', () => {
+                if (!lightbox.classList.contains('visible')) { lightbox.hidden = true; }
             }, { once: true });
         };
-
         lightboxClose.addEventListener('click', closeLightbox);
         lightbox.addEventListener('click', function(e) {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
+            if (e.target === lightbox) { closeLightbox(); }
         });
     }
 });
