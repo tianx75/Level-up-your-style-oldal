@@ -7,7 +7,7 @@
     --dark-bg: #1a1a1a;
     --gold-accent: #b08d57;
     --light-text: #f0f0f0;
-    --secondary-text: #a0a0a0;
+    --secondary-text: #cccccc; /* << JAVÍTVA: Világosabb szürke a jobb kontrasztért */
     --error-color: #e74c3c;
     --dot-color: #555;
     --border-color-dark: #333;
@@ -63,7 +63,8 @@ body.login-page { background-color: var(--dark-bg); color: var(--light-text); di
 .levelup-page header nav ul li a:hover::after { background: #b08d57; }
 .levelup-page .hamburger-icon div { background-color: var(--dark-text-light-theme); }
 .levelup-page section { padding: 80px 20px; border-bottom: 1px solid var(--border-color-light); }
-.levelup-page #hero { background-image: url('https://i.imgur.com/7X7cgLl.jpeg'); background-size: cover; background-position: center; color: white; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); text-align: center; border-bottom: none; }
+/* >> JAVÍTÁS ITT: Visszaállítva az eredeti, ballonkabátos kép << */
+.levelup-page #hero { background-image: url('https://i.imgur.com/KY1w88a.jpeg'); background-size: cover; background-position: center; color: white; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); text-align: center; border-bottom: none; }
 .levelup-page #hero h1, .levelup-page #hero p { color: white; }
 .levelup-page #hero h1 { font-size: 3.5rem; margin-bottom: 0.75rem; }
 .levelup-page #hero p { font-size: 1.3rem; font-family: 'Montserrat', sans-serif; }
@@ -104,10 +105,9 @@ body.login-page { background-color: var(--dark-bg); color: var(--light-text); di
 
 /* === KATALÓGUS OLDAL STÍLUSAI === */
 body.catalog-page { background-color: var(--dark-bg); }
+.catalog-page h1, .catalog-page h2, .catalog-page h3, .catalog-page p, .catalog-page a, .catalog-page li { color: var(--light-text); }
 .catalog-page header { background-color: rgba(26, 26, 26, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color-dark); }
-.catalog-page .site-title a { color: var(--light-text); }
 .catalog-page .site-title a:hover { color: var(--gold-accent); }
-.catalog-page header nav ul li a { color: var(--light-text); }
 .catalog-page header nav ul li a:hover { color: var(--gold-accent); }
 .catalog-page header nav ul li a:hover::after { background: var(--gold-accent); }
 .catalog-page .hamburger-icon div { background-color: var(--light-text); }
@@ -133,7 +133,6 @@ body.catalog-page { background-color: var(--dark-bg); }
 .catalog-page .inquiry-button { display: inline-block; background-color: var(--gold-accent); color: var(--dark-bg); padding: 15px 30px; text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; transition: background-color 0.3s ease; }
 .catalog-page .inquiry-button:hover { background-color: #c9a473; }
 .catalog-page footer { background-color: var(--dark-bg); color: var(--secondary-text); text-align: center; padding: 2rem; font-size: 0.9rem; border-top: 1px solid var(--border-color-dark); }
-
 
 /* === RESZPONZÍV STÍLUSOK === */
 @media (max-width: 768px) {
