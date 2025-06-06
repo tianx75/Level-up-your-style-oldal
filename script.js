@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ----- LOGIN OLDAL LOGIKÁJA -----
+    // === LOGIN OLDAL LOGIKÁJA ===
     const passwordForm = document.getElementById('passwordForm');
-    if (passwordForm) { // Csak a login.html-en fut le
+    if (passwordForm) { 
         const passwordInput = document.getElementById('passwordInput');
         const errorMessage = document.getElementById('errorMessage');
         const loginBox = document.getElementById('loginBox');
@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (attemptsLeft <= 0) return;
 
             if (passwordInput.value === correctPassword) {
-                // Helyes jelszó! Átirányítás a katalógus oldalra.
                 window.location.href = "katalogus.html"; 
             } else {
                 attemptsLeft--; 
@@ -40,9 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
         passwordInput.addEventListener('input', function() { errorMessage.textContent = ""; });
     }
 
-    // ----- "LEVEL UP" ÉS KATALÓGUS OLDAL KÖZÖS LOGIKÁJA (HAMBURGER MENÜ) -----
+    // === "LEVEL UP" ÉS KATALÓGUS OLDAL KÖZÖS LOGIKÁJA (HAMBURGER MENÜ) ===
     const hamburgerIcon = document.getElementById('hamburgerIcon');
-    if (hamburgerIcon) { // Az index.html-en és a katalogus.html-en is lefut
+    if (hamburgerIcon) { 
         const navUl = document.querySelector('header nav ul');
 
         hamburgerIcon.addEventListener('click', function() {
@@ -60,9 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ----- "LEVEL UP" OLDAL SPECIFIKUS LOGIKÁJA (HARMONIKA) -----
-    const accordionTriggers = document.querySelectorAll('#szolgaltatasok .accordion-trigger');
-    if (accordionTriggers.length > 0) { // Csak az index.html-en fut le
+    // === "LEVEL UP" OLDAL SPECIFIKUS LOGIKÁJA (HARMONIKA) ===
+    const accordionTriggers = document.querySelectorAll('.levelup-page #szolgaltatasok .accordion-trigger');
+    if (accordionTriggers.length > 0) { 
         accordionTriggers.forEach(trigger => {
             trigger.addEventListener('click', function () {
                 const content = this.nextElementSibling; 
@@ -85,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             content.hidden = true;
                         }
                         content.removeEventListener('transitionend', handler);
-                    });
+                    }, { once: true });
                 }
             });
         });
